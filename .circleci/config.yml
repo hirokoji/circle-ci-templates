@@ -1,0 +1,24 @@
+version: 2.1
+jobs:
+  integration-test:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - run:
+          command: npm install
+          working_directory: ./json-server
+      - run:
+          command: npm start
+          working_directory: ./json-server
+          background: true
+      - run:
+          command: npm test
+          working_directory: ./json-server
+
+
+workflows:
+  version: 2
+  server:
+    jobs:
+      - integration-test
