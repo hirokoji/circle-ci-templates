@@ -16,7 +16,6 @@ jobs:
           command: npm test
           working_directory: ./json-server
 
-
 workflows:
   version: 2
   server:
